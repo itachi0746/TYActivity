@@ -3,13 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import { Button, Cell } from 'vant'
 import '@/common/rem.js'
-import 'animate.css/animate.min.css'
 
-Vue.use(Button).use(Cell)
 Vue.config.productionTip = false
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

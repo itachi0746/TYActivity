@@ -17,9 +17,6 @@ export default {
   },
   mounted () {
     console.log(myModule, postData)
-    postData('/baidu').then((res) => {
-      console.log(1)
-    })
   }
 }
 </script>

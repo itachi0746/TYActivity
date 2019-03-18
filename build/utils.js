@@ -60,7 +60,15 @@ exports.cssLoaders = function (options) {
     postcss: generateLoaders(),
     less: generateLoaders('less'),
     sass: generateLoaders('sass', {indentedSyntax: true}),
-    scss: generateLoaders('sass'),
+    // scss: generateLoaders('sass'),
+    scss: generateLoaders('sass').concat(
+      {
+        loader: 'sass-resources-loader',
+        options: {
+          resources: path.resolve(__dirname, '../src/styles/mixin.scss')
+        }
+      }
+    ),
     stylus: generateLoaders('stylus'),
     styl: generateLoaders('stylus')
   }
@@ -144,6 +152,9 @@ exports.htmlPlugin = function () {
     }
     if(filename === 'index') {
       chunks = ['manifest', 'vendor', 'vendor-index', 'common-api', filename];
+    }
+    if(filename === 'invitation') {
+      chunks = ['manifest', 'vendor', 'vendor-invitation', 'common-api', filename];
     }
 
     let conf = {

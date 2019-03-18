@@ -60,7 +60,7 @@ Axios.interceptors.response.use(
         duration: 1000,
         background: '#fef0f0'
       })
-      return Promise.reject(res.data.ErrMsg)
+      return Promise.reject(res.data.ErrMsg) // 返回promise对象,把错误信息传下去
     }
     return res
   },
@@ -117,20 +117,6 @@ let postData = function (url, params = {}) {
 }
 
 export { postData }
-
-// // 封装axios的post请求
-// export function postData(url, params = {}) {
-//   return new Promise((resolve, reject) => {
-//     Axios.post(url, params)
-//       .then(response => {
-//         resolve(response.data);
-//       })
-//       .catch((error) => {
-//         console.log('请求出错');
-//         reject(error);
-//       })
-//   })
-// }
 
 // 对axios的实例重新封装成一个plugin ,方便 Vue.use(xxxx)
 export default {

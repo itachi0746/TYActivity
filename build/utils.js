@@ -47,7 +47,8 @@ exports.cssLoaders = function (options) {
     if (options.extract) {
       return ExtractTextPlugin.extract({
         use: loaders,
-        fallback: 'vue-style-loader'
+        fallback: 'vue-style-loader',
+        publicPath: '../../'
       })
     } else {
       return ['vue-style-loader'].concat(loaders)
@@ -154,6 +155,9 @@ exports.htmlPlugin = function () {
       chunks = ['manifest', 'vendor', 'vendor-index', 'common-api', filename];
     }
     if(filename === 'invitation') {
+      chunks = ['manifest', 'vendor', 'vendor-invitation', 'common-api', filename];
+    }
+    if(filename === 'album') {
       chunks = ['manifest', 'vendor', 'vendor-invitation', 'common-api', filename];
     }
 

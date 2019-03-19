@@ -1,3 +1,4 @@
+/* eslint-disable */
 export default {
   /**
    * 导航到指定页面
@@ -40,6 +41,52 @@ export default {
         url: '#'
       }
       window.history.replaceState(state, '', '#')
+    }
+  },
+  /**
+   * 节流函数。
+   */
+  throttle: function (action, delay) {
+    let timeout = null
+    let lastRun = 0
+    return function () {
+      if (timeout) return
+      let elapsed = Date.now() - lastRun
+      let context = this
+      let args = arguments
+      let runCallback = function () {
+        lastRun = Date.now()
+        timeout = false
+        action.apply(context, args)
+      }
+      if (elapsed >= delay) {
+        runCallback()
+      } else {
+        timeout = setTimeout(runCallback, delay)
+      }
+    }
+  },
+  /**
+   * 预加载图片函数
+   * @param imgArr 图片地址数组
+   */
+  preLoadImgs: function (imgArr) {
+    let images = [],
+      allCount = imgArr.length,
+      loadedCount = 0
+    for (let i = 0; i < imgArr.length; i++) {
+      images[i] = new Image()
+      images[i].src = imgArr[i]
+      images[i].onload = function () {
+        loadedCount++
+      }
+      images[i].onerror = function () {
+        allCount--
+        console.log('fail to load image')
+      }
+      if(loadedCount === allCount) {
+        console.log('加载完成')
+      }
     }
   }
 }

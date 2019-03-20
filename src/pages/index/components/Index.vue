@@ -172,7 +172,7 @@ export default {
 
   .body {
     width: 100%;
-    height: 18rem;
+    height: 17rem;
     background: url("../assets/btmBg.png") no-repeat;
     background-size: 100% 100%;
     position: absolute;

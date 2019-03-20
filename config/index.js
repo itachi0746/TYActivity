@@ -10,8 +10,15 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
-
+    // proxyTable: {
+    //   '/': {
+    //     target: 'http://serv.gdcmcc.com:23203',  // 通过本地服务器将你的请求转发到这个地址
+    //     changeOrigin: true,  // 设置这个参数可以避免跨域
+    //     // pathRewrite: {
+    //     //   '^/api': ''
+    //     // }
+    //   },
+    // },
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined

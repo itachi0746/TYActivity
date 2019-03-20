@@ -5,7 +5,8 @@ let ROOT
 // 环境的切换
 if (process.env.NODE_ENV === 'development') {
   // 开发环境下的代理地址，解决本地跨域跨域，配置在config目录下的index.js dev.proxyTable中
-  ROOT = '/api'
+  // ROOT = '/api'
+  ROOT = 'http://localhost/gdcnymot/'
 } else {
   // 生产环境下的地址
   ROOT = '/MallService'
@@ -43,8 +44,9 @@ Axios.interceptors.request.use(
     // error 的回调信息
     Notify({
       message: error.data,
-      duration: 1000,
-      background: '#fef0f0'
+      duration: 2000,
+      background: '#fef0f0',
+      color: 'red'
     })
     return Promise.reject(error)
   }
@@ -57,8 +59,9 @@ Axios.interceptors.response.use(
     if (res.data.Data && !res.data.Success) {
       Notify({
         message: res.data.ErrMsg, // 弹出错误信息
-        duration: 1000,
-        background: '#fef0f0'
+        duration: 2000,
+        background: '#fef0f0',
+        color: 'red'
       })
       return Promise.reject(res.data.ErrMsg) // 返回promise对象,把错误信息传下去
     }
@@ -67,8 +70,9 @@ Axios.interceptors.response.use(
   error => {
     Notify({
       message: '请求出错', // 弹出错误信息
-      duration: 1000,
-      background: '#fef0f0'
+      duration: 2000,
+      background: '#fef0f0',
+      color: 'red'
     })
 
     // 下面是接口回调的status

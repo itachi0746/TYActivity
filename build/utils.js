@@ -148,18 +148,13 @@ exports.htmlPlugin = function () {
     //   ['manifest', 'vendor', 'vendor-admin', 'common-api', filename] :
     //   ['manifest', 'vendor', 'vendor-index', 'common-api', filename]
     let chunks;
-    if(filename === 'admin') {
-      chunks = ['manifest', 'vendor', 'vendor-admin', 'common-api', filename];
-    }
-    if(filename === 'index') {
-      chunks = ['manifest', 'vendor', 'vendor-index', 'common-api', filename];
-    }
-    if(filename === 'invitation') {
-      chunks = ['manifest', 'vendor', 'vendor-invitation', 'common-api', filename];
-    }
-    if(filename === 'album') {
-      chunks = ['manifest', 'vendor', 'vendor-invitation', 'common-api', filename];
-    }
+      chunks = ['manifest', 'vendor', 'common-api', filename];
+    // if(filename === 'admin') {
+    //   chunks = ['manifest', 'vendor', 'vendor-admin', 'common-api', filename];
+    // }
+    // if(filename === 'index') {
+    //   chunks = ['manifest', 'vendor', 'vendor-index', 'common-api', filename];
+    // }
 
     let conf = {
       // 模板来源

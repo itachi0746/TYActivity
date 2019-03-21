@@ -17,8 +17,7 @@ export default {
     return {}
   },
 
-  components: {
-  },
+  components: {},
 
   computed: {},
 
@@ -31,11 +30,14 @@ export default {
     }
   },
 
-  created () {},
+  created () {
+  },
 
-  mounted () {},
+  mounted () {
+  },
 
-  beforeDestroy () {}
+  beforeDestroy () {
+  }
 }
 </script>
 
